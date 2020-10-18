@@ -1,5 +1,6 @@
 $( document ).ready(function() {
     $('#GifAnimation').hide(); 
+    $('#cuadro').hide();
     $("#uploadForm").submit(function() {
         var bucketName = 'smarts001';
         var bucket = new AWS.S3({params: {Bucket: bucketName}});
@@ -30,6 +31,11 @@ $( document ).ready(function() {
                     $('#GifAnimation').hide();
                     $('#UpAudio').show();
                     $('#TextOutput').text('Carga de archivo de audio terminada!!!');
+                    
+                    $('#TextOutput').text('Procesando, espere en promedio 4 minutos...');
+                    setTimeout("console.log()",185000);
+                    $('#TextOutput').text('Tiempo estimado 3.46 minutos');
+                    $('#cuadro').show();
                 }
             });
         }else{
